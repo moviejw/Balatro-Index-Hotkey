@@ -55,11 +55,13 @@ function Controller.key_press_update(self, key, dt)
         
         if tableContains(keys_to_ui, key) then
             if keys_to_ui[key] == "play_hand" then
+                G.hand.cards[selected_index]:stop_hover()
                 local play_button = G.buttons:get_UIE_by_ID('play_button')
                 if play_button.config.button == 'play_cards_from_highlighted' then
                     G.FUNCS.play_cards_from_highlighted()
                 end
             elseif keys_to_ui[key] == "discard_hand" then
+                G.hand.cards[selected_index]:stop_hover()
                 local discard_button = G.buttons:get_UIE_by_ID('discard_button')
                 if discard_button.config.button == 'discard_cards_from_highlighted' then
                     G.FUNCS.discard_cards_from_highlighted()
